@@ -1,0 +1,83 @@
+﻿{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+			 <!-- CSS
+	    ================================================== -->
+	    <meta charset="utf-8">
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<title> STL_list </title>
+	</head>
+	<body>
+
+	<nav class="navbar navbar-inverse">
+	<div class="container">
+	<div class = "navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+		</div>
+		
+		</div>
+        <div id="navbar" class="collapse navbar-collapse">
+        		  <a class="navbar-brand" href="/printer/dashboard">INCKU</a>
+           <ul class="nav navbar-nav">
+	      <li class="active"><a href="#">Home</a></li>
+	      <li><a href="#">About US</a></li>
+	      <li><a href="#">WORK</a></li>
+	      <li><a href="#">TEAM</a></li>
+	      <li><a href="#">CONTACT</a></li>
+	      <li>'        '</li>
+	      <li>'        '</li>
+	      <li>'        '</li>
+	      <li>'        '</li>
+	      <li>'        '</li>
+	      <li><a href="#">username : {{ user }}  money: {{ user.profile.money }}</a></li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Account</a></li>
+	      <li><a href="/accounts/logout"><span class="glyphicon glyphicon-log-in"></span>Log out</a></li>
+	    </ul>
+        </div>
+	   
+	  </div>
+	</nav>
+		<div class = "container">
+			<div class="jumbotron">
+		    <h1>Welcome to Model Market</h1>      
+		    <p>This is a 3DPrinter Platform for transfering model.</p>
+		  </div>
+			<h3></h3> 
+			<div id=your_model>
+			<h3>Your Model
+   				<a href="/printer/model_list/model_owner"><input type="submit"  value="Your Model"></a>
+		<a href="/printer/model_list/model_sell"><input type="submit"  value="Sell your Model"></a>
+   			</h3>
+   			</div>
+			
+			
+			<div class = "row">
+				<div class="col-sm-3">	
+				{% for post in post %}	
+				<a href="/Printer_List">
+				<h3>模型名稱: {{ post.model_name }}					
+       				售價:{{ post.model_price }}	
+	        		<img src="{{ post.model_image.url }}" height="300" width="300">
+	        		pubilish_date: {{ post.model_date|date:"Y/m/d"}} </h3></a>
+				</div>
+				{% endfor %}
+			</div>
+			</div>
+			
+			
+
+	</body>
+
+</html>

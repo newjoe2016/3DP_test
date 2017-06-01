@@ -1,0 +1,98 @@
+﻿{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+			 <!-- CSS
+	    ================================================== -->
+	    <meta charset="utf-8">
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<title> STL_list </title>
+	</head>
+	<body>
+
+	<nav class="navbar navbar-inverse">
+	<div class="container">
+	<div class = "navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+		</div>
+		
+		</div>
+        <div id="navbar" class="collapse navbar-collapse">
+        		  <a class="navbar-brand" href="/printer/dashboard">INCKU</a>
+           <ul class="nav navbar-nav">
+	      <li class="active"><a href="#">Home</a></li>
+	      <li><a href="#">About US</a></li>
+	      <li><a href="#">WORK</a></li>
+	      <li><a href="#">TEAM</a></li>
+	      <li><a href="#">CONTACT</a></li>
+	      <li>'        '</li>
+	      <li>'        '</li>
+	      <li>'        '</li>
+	      <li>'        '</li>
+	      <li>'        '</li>
+	      <li><a href="#">username : {{ user }}  money: {{ user.profile.money }}</a></li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Account</a></li>
+	      <li><a href="/accounts/logout"><span class="glyphicon glyphicon-log-in"></span>Log out</a></li>
+	    </ul>
+        </div>
+	   
+	  </div>
+	</nav>
+		<div class="container">
+		<div class="jumbotron">
+		  <h2>STL File_list</h2>
+		  <p>The page list your stl-file.</p>
+		 </div>
+		  <table class="table">	
+    	<thead>
+    		
+    		<tr>
+    			
+		        <th><h2>File-name</h2></th>
+		        <th><h2>Upload-time</h2></th>
+		        <th><h2>Image</h2></th>
+		        <th><h2>Print</h2></th>
+		        <th><h2>Delete</h2></th>
+		        
+		     </tr>
+		     
+    	</thead>
+    	   <tbody>
+    	   <h3>
+    	   {% for stl in stl %}
+      		   <tr class="success">
+		    	<td><h3>{{ stl.stl_name }}</h3></td>
+		        <td><h3>{{ stl.stl_date|date:"Y/m/d" }}</h3></td>
+		        <td><img src="{{ stl.stl_image.url }}" height="100" width="100"></td>
+		        <td><h3><a href="#">Print</a>  </h3></td>
+		        <td><h3><a href="{% url 'Stl_Delete' pk=stl.pk%}" value="delete" onclick="if(confirm('確認是否要刪除?')) return true;else return false">delete</a> </h3></td>
+		      </tr>
+		    {% endfor %}
+		    </h3>
+		    </tbody>
+		  </table>
+		</div>
+
+
+
+    		<div class="container_upload">
+    		<form method="post" enctype="multipart/form-data" action="">
+    			{% csrf_token %} 
+    			<h6>上傳stl檔案 :<input type='file' id="upload" name="stl_file" ></h6>
+   				<input type="submit" name="PrintB_1" value="upload"></button><br />
+    		</form>  
+    	</div> 	
+
+	</body>
+</html>

@@ -1,0 +1,114 @@
+﻿{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+
+        <script type="text/javascript" src='{% static 'members/js'%}'></script>
+        </script>
+        <title>Print F-2</title>
+    </head>
+    <body>
+        <div class="header">
+            <div class="col">
+                <a href="/dashboard"><h1 >INCKU</h1></a>
+            </div>
+            <div class="col">
+                <a href="/accounts/logout" class="btn2">Log out</a>>                
+            </div>
+        </div>
+        <div class="bottom">
+        <div class="container">
+            <ul class="nav">
+                <a href=#><li><h3>About US</h3>
+                <span>We are the group who dedicate to education</span></li></a>
+                <a href=#><li><h3>WORK</h3>
+                <span>Integration the resources of the South</span></li></a>
+                <a href=#><li><h3>TEAM</h3>
+                <span>NCKU:
+                CILS LAB ,Ms young LAB,Mr Lin LAB ,and many Taina school</span></li></a>
+                <a href=#><li><h3>CONTACT</h3>
+                <span>06-2762544-25</span></li></a>
+                <li><h3>username : {{ user }}  money: {{ user.profile.money }}</h3>
+            </ul>
+        </div>
+        </div>
+    		<div class="container2">
+    		<form action="" method="POST">-
+         	<h3>machine setting</h3>
+         	<table>
+            <tr>
+                <td> <label for="Printer_name">3D列印機名稱:</label> </td>
+                <td> <input id="Printer_name" type="text" name="Printer_name" size=12 value={{printer.Printer_name}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="max_x">X軸列印長度:</label> </td>
+                <td> <input id="max_x" type="text" name="max_x" size=12 value={{printer.max_x}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="max_y">Y軸列印長度:</label> </td>
+                <td> <input id="max_y" type="text" name="max_y" size=12 value={{printer.max_y}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="max_z">Z軸列印長度:</label> </td>
+                <td> <input id="max_z" type="text" name="max_z" size=12 value={{printer.max_z}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="nozzle_nr">噴頭個數:</label> </td>
+                <td> <input id="nozzle_nr" type="text" size=12 value={{printer.nozzle_nr}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="filament">線材:</label> </td>
+                <td> <input id="filament" type="text" name="filament" size=12 value={{printer.filament}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="layer_height">建議層高:</label> </td>
+                <td> <input id="layer_height" type="text"  name="layer_height"  size=12 value={{printer.layer_height}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="shell_thick">建議殼厚:</label> </td>
+                <td> <input id="shell_thick" type="text" name="shell_thick" size=12 value={{printer.shell_thick}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="Infill">建議infill:</label> </td>
+                <td> <input id="Infill" type="text" name="Infill" size=12 value={{printer.Infill}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="Print_Speed">建議Print_Speed:</label> </td>
+                <td> <input id="Print_Speed" type="text" name="Print_Speed"  size=12 value={{printer.Print_Speed}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="nozzle_temperature">建議nozzle_temperature:</label> </td>
+                <td> <input id="nozzle_temperature" type="text" name="nozzle_temperature" size=12 value={{printer.Infill}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="bed_temperature">建議bed_temperature:</label> </td>
+                <td> <input id="bed_temperature" type="text" name="bed_temperature" size=12 value={{printer.Infill}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="Support_Angle">Support_Angle</label> </td>
+                <td> <input id="Support_Angle" type="text" name="Support_Angle" size=12 value={{printer.Support_Angle}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="Retract_Length">Retract_Length</label> </td>
+                <td> <input id="Retract_Length" type="text" name="Retract_Length" size=12 value={{printer.Retract_Length}}> </td>
+             </tr>
+             <tr>
+                <td> <label for="Retract_Speed">Retract_Speed</label> </td>
+                <td> <input id="Retract_Speed" type="text" name="Retract_Speed" size=12 value={{printer.Retract_Speed}}> </td>
+             </tr>
+            </table>
+         	<h3>  
+  
+         	<h3><input type="submit" name="modify" value="modify" onclick="if(confirm('確認是否要修改?'))return true;else return false"> <input type="submit" value="delete" name="delete" onclick="if(confirm('確認是否要刪除?'))return true;else return false"></h3>
+            </h3>
+        	</form>
+
+    		</div>
+    	<div id="bottom3">
+		<div class="contain-bottom">
+			<p>&copy; TEST 2016</p>	
+		</div>
+		</div>
+	</body>
+</html>

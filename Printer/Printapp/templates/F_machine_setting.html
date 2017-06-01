@@ -1,0 +1,180 @@
+﻿{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+
+        <script type="text/javascript" src='{% static 'members/js'%}'></script>
+        </script>
+        <title>Print F-1</title>
+    </head>
+    <body>
+        <div class="header">
+            <div class="col">
+                <a href="/dashboard"><h1 >INCKU</h1></a>
+            </div>
+            <div class="col">
+                <a href="/accounts/logout" class="btn2">Log out</a>>                
+            </div>
+        </div>
+        <div class="bottom">
+        <div class="container">
+            <ul class="nav">
+                <a href=#><li><h3>About US</h3>
+                <span>We are the group who dedicate to education</span></li></a>
+                <a href=#><li><h3>WORK</h3>
+                <span>Integration the resources of the South</span></li></a>
+                <a href=#><li><h3>TEAM</h3>
+                <span>NCKU:
+                CILS LAB ,Ms young LAB,Mr Lin LAB ,and many Taina school</span></li></a>
+                <a href=#><li><h3>CONTACT</h3>
+                <span>06-2762544-25</span></li></a>
+                <li><h3>username : {{ user }}  money: {{ user.profile.money }}</h3>
+            </ul>
+        </div>
+        </div>
+    		<div class="container2">
+    		<form action="" method="POST">-
+         	<h3>machine setting</h3>
+         	<table>
+            <tr>
+                <td> <label for="Printer_name">3D列印機名稱:</label> </td>
+                <td> <input id="Printer_name" type="text" name="Printer_name" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="max_x">X軸列印長度:</label> </td>
+                <td> <input id="max_x" type="text" name="max_x" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="max_y">Y軸列印長度:</label> </td>
+                <td> <input id="max_y" type="text" name="max_y" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="max_z">Z軸列印長度:</label> </td>
+                <td> <input id="max_z" type="text" name="max_z" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="nozzle_nr">噴頭個數:</label> </td>
+                <td> <input id="nozzle_nr" type="text" name="nozzle_nr" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="filament">線材:</label> </td>
+                <td> <input id="filament" type="text" name="filament" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="layer_height">建議層高:</label> </td>
+                <td> <input id="layer_height" type="text" name="layer_height" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="shell_thick">建議殼厚:</label> </td>
+                <td> <input id="shell_thick" type="text" name="shell_thick" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="Infill">建議infill:</label> </td>
+                <td> <input id="Infill" type="text" name="Infill" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="Print_Speed">建議Print_Speed:</label> </td>
+                <td> <input id="Print_Speed" type="text" name="Print_Speed" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="nozzle_temperature">建議nozzle_temperature:</label> </td>
+                <td> <input id="nozzle_temperature" type="text" name="nozzle_temperature" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="bed_temperature">建議bed_temperature:</label> </td>
+                <td> <input id="bed_temperature" type="text" name="bed_temperature" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="Support_Angle">Support_Angle</label> </td>
+                <td> <input id="Support_Angle" type="text" name="Support_Angle" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="Retract_Length">Retract_Length</label> </td>
+                <td> <input id="Retract_Length" type="text" name="Retract_Length" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+                <td> <label for="Retract_Speed">Retract_Speed</label> </td>
+                <td> <input id="Retract_Speed" type="text" name="Retract_Speed" maxlength=12 size=12> </td>
+             </tr>
+            </table>
+         	<h3>  
+                <h7>support_range </h7>          
+                <select name="support_range">
+             　          <option value="1">everywhere</option>
+                        <option value="2">Touching_buildplate</option>
+                 </select>
+                 <p></p>
+                 <h7>Plate_Type</h7>
+                 <select name="Plate_Type">Plate_Type
+             　          <option value="1">Raft</option>
+                        <option value="2">Brim</option>
+                 </select>
+                 <p></p>
+
+                 <h7>Machine_Type</h7> 
+                
+                <select name="machine">
+         　          <option value="1">101Hero
+                    </option><option value="2">abax_pri3
+                    </option><option value="3">abax_pri5
+                    </option><option value="4">abax_titan
+                    </option><option value="5">bfb
+                    </option><option value="6">bq_hephestos
+                    </option><option value="7">bq_hephestos_2
+                    </option><option value="8">bq_hephestos_xl
+                    </option><option value="9">bq_witbox
+                    </option><option value="10">bq_witbox_2
+                    </option><option value="11">cartesio
+                    </option><option value="12">deltabot
+                    </option><option value="13">delta_go
+                    </option><option value="14">grr_neo
+                    </option><option value="15">innovo_inventor
+                    </option><option value="16">jellybox
+                    </option><option value="17">julia
+                    </option><option value="18">kossel_mini
+                    </option><option value="19">kossel_pro
+                    </option><option value="20">kupido
+                    </option><option value="21">m180
+                    </option><option value="22">makerbotreplicator
+                    </option><option value="23">maker_starter
+                    </option><option value="24">mankati_fullscale_xt_plus
+                    </option><option value="25">mendel90
+                    </option><option value="26">ord
+                    </option><option value="27">printrbot_play
+                    </option><option value="28">printrbot_play_heated
+                    </option><option value="29">printrbot_simple
+                    </option><option value="30">printrbot_simple_extended
+                    </option><option value="31">prusa_i3
+                    </option><option value="32">prusa_i3_mk2
+                    </option><option value="33">prusa_i3_xl
+                    </option><option value="34">punchtec_connect_xl
+                    </option><option value="35">renkforce_rf100
+                    </option><option value="36">rigid3d
+                    </option><option value="37">rigid3d_3rdgen
+                    </option><option value="38">rigid3d_hobby
+                    </option><option value="39">rigid3d_zero
+                    </option><option value="40">rigidbot
+                    </option><option value="41">rigidbot_big
+                    </option><option value="42">robo_3d_r1
+                    </option><option value="43">ultimaker
+                    </option><option value="44">ultimaker2_plus
+                    </option><option value="45">ultimaker3
+                    </option><option value="46">ultimaker3_extended
+                    </option><option value="47">ultimaker_original
+                    </option><option value="48">ultimaker_original_plus
+                    </option><option value="49">uniqbot_one
+                    </option><option value="50">zone3d_printer</option>
+      		    </select>
+         	<h3><input type="submit" value="Submit" /></h3>
+            </h3>
+        	</form>
+
+    		</div>
+    	<div id="bottom3">
+		<div class="contain-bottom">
+			<p>&copy; TEST 2016</p>	
+		</div>
+		</div>
+	</body>
+</html>

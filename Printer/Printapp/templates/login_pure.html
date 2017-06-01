@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
+</head>
+<body>
+	 <form class="pure-form pure-form-aligned"  action="" method="POST">
+
+              {%csrf_token%}
+
+                <fieldset>
+
+                    <legend ><h1>LOGIN OR REGIST</h1></legend>
+
+                    <div class="login">
+
+                    <div class="pure-control-group">
+
+                        <label for="username">Username</label>
+
+                        <input id='username' name="username" type="text" placeholder="User name">
+
+                        </div>
+
+                    <div class="pure-control-group">
+
+                        <label for="password">Password</label>
+
+                        <input id="password" name="password" type="password" placeholder="Password">
+
+                        </div>
+
+                        <div class='pure-controls'>
+
+                        <button type="submit" class="pure-button pure-button-primary">登录</button>
+
+
+                        <a type="submit" class="pure-button pure-button-primary" href="/accounts/register01/">注册</a>
+
+                        </div>
+
+                        </div>
+
+                </fieldset>
+
+             </form>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+
+        <script type="text/javascript" src='{% static 'members/js'%}'></script>
+        </script>
+        <title>model detail</title>
+    </head>
+    <body>
+        <div class="header">
+            <div class="col">
+                <a href="/dashboard"><h1 >INCKU</h1></a>
+            </div>
+            <div class="col">
+                <a href="/accounts/logout" class="btn2">Log out</a>         
+            </div>
+        </div>
+        <div class="bottom">
+        <div class="container">
+            <ul class="nav">
+                <a href=#><li><h3>About US</h3>
+                <span>We are the group who dedicate to education</span></li></a>
+                <a href=#><li><h3>WORK</h3>
+                <span>Integration the resources of the South</span></li></a>
+                <a href=#><li><h3>TEAM</h3>
+                <span>NCKU:
+                CILS LAB ,Ms young LAB,Mr Lin LAB ,and many Taina school</span></li></a>
+                <a href=#><li><h3>CONTACT</h3>
+                <span>06-2762544-25</span></li></a>
+                <li><h3>username : {{ user }}  money: {{ user.profile.money }}</h3>
+            </ul>
+        </div>
+        </div>
+    <div class="header">
+        <h1 class="title">detail</h1>
+    </div>
+        <div class="container_detail">
+            <h1 class=title>{{ post.proj_name }}</h1>   
+            <h5>Poster:  {{ post.proj_havier }}   </h5>                               
+            <h5>售價: {{ post.proj_price }}    </h5>
+            <h5>簡述:  {{ post.proj_introd }}   </h5>
+                <div class="">
+                    <img src="{{ post.proj_image.url }}" width="500" height="300" />
+                </div>
+            <div class="date">{{ post.proj_date|date:"Y/m/d"}} </div>
+        <!--  <a href="/download">下載</a> -->
+            <form action="" method="post">
+            <input type="submit"  value="購買" class='download'></button></a>
+            </form>
+        </div>
+        <div id="bottom_detail">
+        <div class="contain-bottom">
+            <p>&copy; TEST 2016</p> 
+        </div>
+        </div>
+    </body>
+</html>

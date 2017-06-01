@@ -1,0 +1,129 @@
+﻿{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+			 <!-- CSS
+	    ================================================== -->
+	    <meta charset="utf-8">
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		  <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+		$(function (){
+		 
+		    function format_float(num, pos)
+		    {
+		        var size = Math.pow(10, pos);
+		        return Math.round(num * size) / size;
+		    }
+		 
+		    function preview(input) {
+		 
+		        if (input.files && input.files[0]) {
+		            var reader = new FileReader();
+		            
+		            reader.onload = function (e) {
+		                $('.preview').attr('src', e.target.result);
+		                var KB = format_float(e.total / 1024, 2);
+		                $('.size').text("檔案大小：" + KB + " KB");
+		            }
+		 
+		            reader.readAsDataURL(input.files[0]);
+		        }
+		    }
+		 
+		    $("body").on("change", ".upl", function (){
+		        preview(this);
+		    })
+		    
+		})
+		</script>
+		<title> Sell Model </title>
+	</head>
+	<body>
+
+	<nav class="navbar navbar-inverse">
+	<div class="container">
+	<div class = "navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+		</div>
+		
+		</div>
+        <div id="navbar" class="collapse navbar-collapse">
+        		  <a class="navbar-brand" href="/printer/dashboard">INCKU</a>
+           <ul class="nav navbar-nav">
+	      <li class="active"><a href="#">Home</a></li>
+	      <li><a href="#">About US</a></li>
+	      <li><a href="#">WORK</a></li>
+	      <li><a href="#">TEAM</a></li>
+	      <li><a href="#">CONTACT</a></li>
+	      <li>'        '</li>
+	      <li>'        '</li>
+	      <li>'        '</li>
+	      <li>'        '</li>
+	      <li>'        '</li>
+	      <li><a href="#">username : {{ user }}  money: {{ user.profile.money }}</a></li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Account</a></li>
+	      <li><a href="/accounts/logout"><span class="glyphicon glyphicon-log-in"></span>Log out</a></li>
+	    </ul>
+        </div>
+	   
+	  </div>
+	</nav>
+	<div class="container">
+  		<h2>model sell</h2>
+  		<form class="form-horizontal" method="post" enctype="multipart/form-data" action="">
+  			<div class="form-group has-success has-feedback">
+		      <label class="col-sm-2 control-label" for="inputSuccess">Model_name 
+		      </label>
+		      <div class="col-sm-10">
+		      <input id="model_name" type="text" name="model_name" maxlength=12  class="form-control"> 
+		        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+		      </div>
+		    </div>
+
+		    <div class="form-group has-success has-feedback">
+		      <label class="col-sm-2 control-label" for="inputSuccess">Price:</label>
+		      <div class="col-sm-10">
+		        <input type="number" name="model_price" maxlength=6 class="form-control" id="model_price"/> 
+		        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+		      </div>
+		    </div>
+
+		    <div class="form-group has-success has-feedback">
+		      <label class="col-sm-2 control-label" for="inputSuccess">Introduction</label>
+		      <div class="col-sm-10">
+		        <textarea name=model_introd rows=5 cols=50></textarea>
+		        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+		      </div>
+		    </div>
+
+		    <div class="form-group has-success has-feedback">
+		      <label class="col-sm-2 control-label" for="inputSuccess">Upload Image</label>
+		      <div class="col-sm-10">
+		        <input accept="image/*" type='file' class="upl"  name="model_image"></h6>
+   			 		<div>
+        				<img class="preview" style="max-width: 300px; max-height: 300px;">
+       					<div class="size"></div>
+   					</div>
+   				<h6>上傳壓縮模型 :<input type='file' id="upload" name="model_file" ></h6>
+   				<input type="submit" name="PrintE_2"><b>提交</b></button><br />
+		        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+		      </div>
+		    </div>
+		  </form>
+		 </div>
+   			
+	</body>
+
+</html>

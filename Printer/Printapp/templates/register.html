@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% if errors %}
+        <li>
+
+            {% for error in errors %}
+             <p style="color: red;">
+                {{error}}
+             </p>
+              {% endfor %}
+        </li>
+    {% endif %}
+<table>
+    <form action="" method="post">{% csrf_token %}
+
+        <tr>
+            <td>
+                <label >用戶名:</label>
+            </td>
+            <td>
+                <input type = 'text' placeholder="輸入用戶名" name = 'account'>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label >密碼:</label>
+            </td>
+            <td>
+              <input type = 'password' placeholder="輸入密碼" name = 'password'>
+            </td>
+        </tr>
+         <tr>
+             <td>
+                <label >確認密碼:</label>
+             </td>
+             <td>
+                 <input type = 'password' placeholder="再次輸入密碼" name ='password2'>
+             </td>
+
+         </tr>
+         <tr>
+             <td>
+                 <label>信箱:</label>
+             </td>
+             <td>
+                 <input type="email" placeholder="輸入信箱" name = 'email'>
+             </td>
+         </tr>
+          <tr>
+
+              <td>
+                   <input type ='submit' placeholder="Login" value="登入">
+              </td>
+          </tr>
+    </form>
+</table>
+</body>
+</html>

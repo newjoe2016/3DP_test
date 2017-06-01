@@ -1,0 +1,18 @@
+.header{
+	border-top-width: 40px;
+	border-bottom: 40px;
+	
+}
+
+.logal{
+	font-size: 20px;
+	font-style: Impact;
+	color:blue;
+	text-align: left;
+}
+
+.cutting{
+	background-color: #466995;
+	border-bottom: 1px solid #466995;
+	width:  100%;
+}

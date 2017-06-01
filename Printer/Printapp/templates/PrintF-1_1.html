@@ -1,0 +1,65 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">  
+
+        <script type="text/javascript" src='{% static 'members/js'%}'></script>
+        </script>
+		<title>Print B-1</title>
+	</head>
+	<body>
+		<div class="header">
+		    <div class="col">
+			    <a href="/dashboard"><h1 >INCKU</h1></a>
+		    </div>
+		    <div class="col">
+			    <a href="/accounts/logout" class="btn2">Log out</a>>				
+		    </div>
+		</div>
+		<div class="bottom">
+		<div class="container">
+			<ul class="nav">
+				<a href=#><li><h3>About US</h3>
+				<span>We are the group who dedicate to education</span></li></a>
+				<a href=#><li><h3>WORK</h3>
+				<span>Integration the resources of the South</span></li></a>
+				<a href=#><li><h3>TEAM</h3>
+				<span>NCKU:
+				CILS LAB ,Ms young LAB,Mr Lin LAB ,and many Taina school</span></li></a>
+				<a href=#><li><h3>CONTACT</h3>
+				<span>06-2762544-25</span></li></a>
+				<li><h3>username : {{ user }}  money: {{ user.profile.money }}</h3>
+			</ul>
+		</div>
+		</div>
+	<body>
+		<div class="container_upload">
+    	<table >
+    		<h4>Your Printer
+    		<form method="post" enctype="multipart/form-data" action="">
+    			<h6>Establish a new 3DP :<input type='file' id="upload" name="stl_file" ></h6>
+   				<input type="submit" name="PrintB_1"></button><br />
+    		</form>  
+    		</h4>
+    		<tbody class="tbod">
+    		{% for pr in printer %}
+        	<tr>
+        	    <td><h3>檔案名稱: {{ pr.printer_name }}</h3></td>
+        	    <td><img src="/i/eg_tulip.jpg"></img></td>
+        	    <td><h3>Machine_Type: {{ pr.pr_type }}</h3></td>
+        	    <td><h3>上傳時間: {{ pr.pr_date|date:"Y/m/d" }}</h3></td>
+        	    <td><a href="{% url 'PrintF-1' pk=printer.pk%}">modify Printer setting </a></td>
+        	</tr>
+        	{% endfor %}
+        	</div>
+    	</tbody>
+    	</table>
+    	</div> 	
+    	<div id="bottom2">
+		<div class="contain-bottom">
+			<p>&copy; TEST 2016</p>	
+		</div>
+		</div>
+	</body>
+</html>

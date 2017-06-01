@@ -1,0 +1,107 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Print D2</title>
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">  
+		
+		<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+		$(function (){
+		 
+		    function format_float(num, pos)
+		    {
+		        var size = Math.pow(10, pos);
+		        return Math.round(num * size) / size;
+		    }
+		 
+		    function preview(input) {
+		 
+		        if (input.files && input.files[0]) {
+		            var reader = new FileReader();
+		            
+		            reader.onload = function (e) {
+		                $('.preview').attr('src', e.target.result);
+		                var KB = format_float(e.total / 1024, 2);
+		                $('.size').text("檔案大小：" + KB + " KB");
+		            }
+		 
+		            reader.readAsDataURL(input.files[0]);
+		        }
+		    }
+		 
+		    $("body").on("change", ".upl", function (){
+		        preview(this);
+		    })
+		    
+		})
+		</script>
+	</head>
+	<body>
+		<div class="header">
+		    <div class="col">
+			    <a href="/dashboard"><h1 >INCKU</h1></a>
+		    </div>
+		    <div class="col">
+			    <a href="/accounts/logout" class="btn2">Log out</a>>			
+		    </div>
+		</div>
+		<div class="bottom">
+		<div class="container">
+			<ul class="nav">
+				<a href=#><li><h3>About US</h3>
+				<span>We are the group who dedicate to education</span></li></a>
+				<a href=#><li><h3>WORK</h3>
+				<span>Integration the resources of the South</span></li></a>
+				<a href=#><li><h3>TEAM</h3>
+				<span>NCKU:
+				CILS LAB ,Ms young LAB,Mr Lin LAB ,and many Taina school</span></li></a>
+				<a href=#><li><h3>CONTACT</h3>
+				<span>06-2762544-25</span></li></a>
+				<li><h3>username : {{ user }}  money: {{ user.profile.money }}</h3>
+			</ul>
+		</div>
+		</div>
+			<div class="container_sell">
+			<h5>教案販賣</h5> 	
+ 			 <form method="post" enctype="multipart/form-data" action="">
+ 			<table>
+    		<tr>
+    			<td> <label for="proj_name">教材名稱:</label> </td>
+                <td> <input id="proj_name" type="text" name="proj_name" maxlength=12 size=12> </td>
+             </tr>
+             <tr>
+    			<td> <label for="proj_price">售價:</label> </td>
+                <td> <input type="text" name="proj_price" maxlength=6 size=6> </td>
+             </tr>
+             <tr>
+    			<td> <label for="proj_age">適合年齡: </label> </td>
+                <td> <input type="text" name="proj_age" maxlength=6 size=6> </td>
+             </tr>
+             <tr>
+    			<td> <label for="proj_ability">可獲得能力 (50字以內) :</label> </td>
+                <td> <textarea name=proj_ability rows=5 cols=50></textarea> </td>
+             </tr>
+             <tr>
+    			<td> <label for="proj_introd">簡述 (100字以內) :</label> </td>
+                <td> <textarea name=proj_introd rows=5 cols=50></textarea> </td>
+             </tr>
+             </table>
+   			<h6>上傳作品圖片 :<input accept="image/*" type='file' class="upl"  name="proj_image"></h6>
+   			 		<div>
+        				<img class="preview" style="max-width: 300px; max-height: 300px;">
+       					<div class="size"></div>
+   					</div>
+   				<h6>上傳壓縮教材 :<input type='file' id="upload" name="proj_file" ></h6>
+   				<input type="submit" name="PrintD_2"><b>提交</b></button><br />
+			</form>
+			</div>
+
+		<div id="bottom_sell">
+		<div class="contain-bottom">
+			<p>&copy; TEST 2016</p>	
+		</div>
+		</div>
+	</body>
+
+</html>
